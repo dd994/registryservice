@@ -7,4 +7,5 @@
     стоворити свої json файли.
 2. За адресою http://localhost:8080/data/login.jsp є графічне відображення бази даних. Дані для входу є в файлі
      src/main/resources - application.properties
+     http://prntscr.com/qarfge
 3. Функції сортування або фільтрації перевіряти або в тому ж Postman, або ж в браузері (GET методи).
