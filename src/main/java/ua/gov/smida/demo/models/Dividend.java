@@ -2,8 +2,12 @@ package ua.gov.smida.demo.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreType;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -16,11 +20,11 @@ public class Dividend {
     @JsonIgnore
     private int id;
 
-    @Column(name = "EDRPOU")
+    @Column(name = "Edrpou")
     private int edrpou;
 
     @Column(name = "Capital_Amount")
-    private int capitalAmount;
+    private Integer capitalAmount;
 
     @Column(name = "Amount")
     private int amount;
@@ -35,21 +39,20 @@ public class Dividend {
     private double stateDutyPaid;
 
     @Column(name = "Release_Date")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
-    private LocalDateTime releaseDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate releaseDate;
 
     @Column(name = "Comment")
     private String comment;
 
     @JsonIgnore
     @Column(name = "Adding_Time")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime addTime;
-
 
     public Dividend() {}
 
-    public Dividend(int id, int edrpou, int capitalAmount, int amount, double totalNominalValue, double nominalValue, double stateDutyPaid, LocalDateTime releaseDate, String comment) {
-        this.id = id;
+    public Dividend(int edrpou, int capitalAmount, int amount, double totalNominalValue, double nominalValue, double stateDutyPaid, LocalDate releaseDate, String comment, LocalDateTime addTime) {
         this.edrpou = edrpou;
         this.capitalAmount = capitalAmount;
         this.amount = amount;
@@ -58,6 +61,7 @@ public class Dividend {
         this.stateDutyPaid = stateDutyPaid;
         this.releaseDate = releaseDate;
         this.comment = comment;
+        this.addTime = addTime;
     }
 
     public int getId() {
@@ -88,7 +92,7 @@ public class Dividend {
         return stateDutyPaid;
     }
 
-    public LocalDateTime getReleaseDate() {
+    public LocalDate getReleaseDate() {
         return releaseDate;
     }
 
@@ -128,7 +132,7 @@ public class Dividend {
         this.stateDutyPaid = stateDutyPaid;
     }
 
-    public void setReleaseDate(LocalDateTime releaseDate) {
+    public void setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
     }
 

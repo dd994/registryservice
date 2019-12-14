@@ -1,0 +1,92 @@
+[
+  {
+    "edrpou": "123456",
+    "capitalAmount": "1000",
+    "amount": "20",
+    "nominalValue": "15",
+    "stateDutyPaid": "99.9",
+    "releaseDate": "2019-12-05",
+    "comment": "some comment"
+  },
+  {
+    "edrpou": "111111",
+    "capitalAmount": "2000",
+    "amount": "100",
+    "nominalValue": "15",
+    "stateDutyPaid": "15.2",
+    "releaseDate": "2019-10-01",
+    "comment": "some comment"
+  },
+  {
+    "edrpou": "222222",
+    "capitalAmount": "3000",
+    "amount": "150",
+    "nominalValue": "15",
+    "stateDutyPaid": "15.2",
+    "releaseDate": "2019-08-09",
+    "comment": "some comment"
+  },
+  {
+    "edrpou": "333333",
+    "capitalAmount": "4000",
+    "amount": "205",
+    "nominalValue": "15",
+    "stateDutyPaid": "50.8",
+    "releaseDate": "2019-01-05",
+    "comment": "some comment"
+  },
+  {
+    "edrpou": "444444",
+    "capitalAmount": "5000",
+    "amount": "354",
+    "nominalValue": "105",
+    "stateDutyPaid": "122",
+    "releaseDate": "2019-12-05",
+    "comment": "some comment"
+  },
+  {
+    "edrpou": "555555",
+    "capitalAmount": "6000",
+    "amount": "120",
+    "nominalValue": "147",
+    "stateDutyPaid": "44",
+    "releaseDate": "2019-10-25",
+    "comment": "some comment"
+  },
+  {
+    "edrpou": "666666",
+    "capitalAmount": "7000",
+    "amount": "240",
+    "nominalValue": "447",
+    "stateDutyPaid": "94",
+    "releaseDate": "2019-04-04",
+    "comment": "some comment"
+  },
+  {
+    "edrpou": "777777",
+    "capitalAmount": "8000",
+    "amount": "250",
+    "nominalValue": "15",
+    "stateDutyPaid": "80",
+    "releaseDate": "2019-02-11",
+    "comment": "some comment"
+  },
+  {
+    "edrpou": "888888",
+    "capitalAmount": "9000",
+    "amount": "20",
+    "nominalValue": "368",
+    "stateDutyPaid": "143",
+    "releaseDate": "2018-11-15",
+    "comment": "some comment"
+  },
+  {
+    "edrpou": "999999",
+    "capitalAmount": "10000",
+    "amount": "200",
+    "nominalValue": "15",
+    "stateDutyPaid": "100",
+    "releaseDate": "2019-12-05",
+    "comment": "some comment"
+  }
+]

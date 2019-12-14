@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -11,9 +12,9 @@ import java.time.LocalDateTime;
 public class DividendsHistory {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     @JsonIgnore
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "EDRPOU")
@@ -25,30 +26,28 @@ public class DividendsHistory {
     @Column(name = "Amount")
     private int amount;
 
-    @Column(name = "Total_Nominal_Value")
-    private double totalNominalValue;
-
     @Column(name = "Nominal_Value")
     private double nominalValue;
+
+    @Column(name = "Total_Nominal_Value")
+    private double totalNominalValue;
 
     @Column(name = "State_Duty_Paid")
     private double stateDutyPaid;
 
     @Column(name = "Release_Date")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
-    private LocalDateTime releaseDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate releaseDate;
 
     @Column(name = "Comment")
     private String comment;
 
     @Column(name = "Adding_Time")
-    @JsonIgnore
     private LocalDateTime addTime;
-
 
     public DividendsHistory() {}
 
-    public DividendsHistory(int edrpou, int capitalAmount, int amount, double totalNominalValue, double nominalValue, double stateDutyPaid, LocalDateTime releaseDate, String comment, LocalDateTime addTime) {
+    public DividendsHistory(int edrpou, int capitalAmount, int amount, double totalNominalValue, double nominalValue, double stateDutyPaid, LocalDate releaseDate, String comment, LocalDateTime addTime) {
         this.edrpou = edrpou;
         this.capitalAmount = capitalAmount;
         this.amount = amount;
@@ -104,11 +103,11 @@ public class DividendsHistory {
         this.stateDutyPaid = stateDutyPaid;
     }
 
-    public LocalDateTime getReleaseDate() {
+    public LocalDate getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(LocalDateTime releaseDate) {
+    public void setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
     }
 

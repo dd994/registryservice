@@ -7,36 +7,30 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import ua.gov.smida.demo.models.Dividend;
 
-
 import javax.transaction.Transactional;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
-
 @Repository
-public interface RegistryRepo extends JpaRepository<Dividend, Integer> {
+public interface RegistryRepo extends JpaRepository<Dividend,Integer> {
+
+    //    ---------------------       get requests      --------------------------------
 
     Dividend getByEdrpou(int edrpou);
 
-    //    --------------------------         sorting           -------------------------      //
+    //    ---------------------       filtration.      ----------------------
 
     List<Dividend> findAllByAmountGreaterThanEqual(int amount);
     List<Dividend> findAllByAmountLessThanEqual(int amount);
-    List<Dividend> findAllByCapitalAmountGreaterThanEqual(double capAmount);
-    List<Dividend> findAllByCapitalAmountLessThanEqual(double capAmount);
     List<Dividend> findAllByNominalValueGreaterThanEqual(double nomValue);
     List<Dividend> findAllByNominalValueLessThanEqual(double nomValue);
-    List<Dividend> findAllByStateDutyPaidGreaterThanEqual(double sdp);
-    List<Dividend> findAllByStateDutyPaidLessThanEqual(double sdp);
-
-    //    ------------------------         pagination           ------------------------      //
-
-    List<Dividend> findFirst10ByAmountGreaterThan(int amount);
+    List<Dividend> findAllByTotalNominalValueGreaterThanEqual(double tnv);
+    List<Dividend> findAllByTotalNominalValueLessThanEqual(double tnv);
+    List<Dividend> findAllByReleaseDateIsAfter(LocalDate date);
+    List<Dividend> findAllByReleaseDateIsBefore(LocalDate date);
 
 
-
-
-    //    ------------------------         db queries           ------------------------      //
+    //    ------------------------     db queries      ---------------------------------
 
     @Modifying
     @Transactional
@@ -61,7 +55,7 @@ public interface RegistryRepo extends JpaRepository<Dividend, Integer> {
     @Modifying
     @Transactional
     @Query(value = "update  DIVIDENDS t set t.RELEASE_DATE = :relDate where t.EDRPOU = :edrpou", nativeQuery = true)
-    void editReleaseDate(@Param("edrpou") int edrpou, @Param("relDate") LocalDateTime relDate);
+    void editReleaseDate(@Param("edrpou") int edrpou, @Param("relDate") LocalDate relDate);
 
     @Modifying
     @Transactional
@@ -72,11 +66,6 @@ public interface RegistryRepo extends JpaRepository<Dividend, Integer> {
     @Transactional
     @Query(value = "update  DIVIDENDS t set t.COMMENT = :comment where t.EDRPOU = :edrpou", nativeQuery = true)
     void editComment(@Param("edrpou") int edrpou, @Param("comment") String comment);
-
-//    @Modifying
-//    @Transactional
-//    @Query(value = "INSERT into Dividends_History  ( Amount )   VALUES  (Amount) F SELECT   Dividends d  where d.EDRPOU = :edrpou ", nativeQuery = true)
-//    void saveToHistory( @Param("edrpou") int edrpou);
 
 }
 

@@ -1,35 +1,52 @@
 package ua.gov.smida.demo.models;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
-public class PublicDividend {
+public class PublicDividend  {
 
     private int edrpou;
     private int amount;
     private double nominalValue;
     private double totalNominalValue;
-    private LocalDateTime releaseDate;
+    private LocalDate releaseDate;
 
-    public int getEdrpou() { return edrpou; }
+    public int getEdrpou() {
+        return edrpou;
+    }
 
-    public void setEdrpou(int edrpou) { this.edrpou = edrpou; }
+    public int getAmount() {
+        return amount;
+    }
 
-    public int getAmount() { return amount; }
+    public double getNominalValue() {
+        return nominalValue;
+    }
+
+    public double getTotalNominalValue() {
+        return totalNominalValue;
+    }
+
+    public LocalDate getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setEdrpou(int edrpou) {
+        this.edrpou = edrpou;
+    }
 
     public void setAmount(int amount) {
         this.amount = amount;
     }
 
-    public double getNominalValue() { return nominalValue; }
+    public void setNominalValue(double nominalValue) {
+        this.nominalValue = nominalValue;
+    }
 
-    public void setNominalValue(double nominalValue) { this.nominalValue = nominalValue; }
+    public void setTotalNominalValue(double totalNominalValue) {
+        this.totalNominalValue = totalNominalValue;
+    }
 
-    public double getTotalNominalValue() { return totalNominalValue; }
-
-    public void setTotalNominalValue(double totalNominalValue) { this.totalNominalValue = totalNominalValue; }
-
-    public LocalDateTime getReleaseDate() { return releaseDate; }
-
-    public void setReleaseDate(LocalDateTime releaseDate) { this.releaseDate = releaseDate; }
-
+    public void setReleaseDate(LocalDate releaseDate) {
+        this.releaseDate = releaseDate;
+    }
 }
